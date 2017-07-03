@@ -22,13 +22,16 @@ public class UrlGenerator {
             throw new IllegalArgumentException("The URL length should be less than 2083 for better support from browser");
         }
         String result = fromString
+                .trim()
                 .replaceAll("á|à|ạ|ã|ả|ă|ắ|ằ|ẵ|ẳ|â|ấ|ầ|ậ|ẫ|ẩ", "a")
                 .replaceAll("đ", "d")
                 .replaceAll("é|è|ẹ|ẽ|ẻ|ê|ế|ề|ệ|ễ|ể", "e")
                 .replaceAll("ó|ò|ọ|õ|ỏ|ô|ố|ồ|ộ|ỗ|ổ|ơ|ớ|ờ|ợ|ỡ|ở", "o")
                 .replaceAll("í|ì|ị|ĩ|ỉ", "i")
                 .replaceAll("ú|ù|ụ|ũ|ủ|ư|ứ|ừ|ự|ữ|ử", "u")
-                .replaceAll("ý|ỳ|ỵ|ỹ|ỷ", "y");
+                .replaceAll("ý|ỳ|ỵ|ỹ|ỷ", "y")
+                .replaceAll("\\s{1,}", "-")
+                .replaceAll("'|,|~|\\?|`|!|@|#|$|%|^|&|\\*|\\(|\\)|_|\\+|=|\\{|\\}|\\[|\\]|\\||;|:|\"|\\.|<|>", "");
         return result;
     }
 

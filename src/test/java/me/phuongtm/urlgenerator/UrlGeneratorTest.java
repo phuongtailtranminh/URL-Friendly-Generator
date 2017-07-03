@@ -10,7 +10,7 @@ public class UrlGeneratorTest {
 
     @Test
     public void shouldReturnPlainString() throws Exception {
-        String expected = UrlGenerator.generateFromString("Xin chào các bạn, đây là chuỗi có dấu");
-        Assert.assertEquals(expected, "Xin chao cac ban, day la chuoi co dau");
+        String expected = UrlGenerator.generateFromString("Xin chào các''' bạn, đây~ >.?là chuỗi có dấu");
+        Assert.assertEquals("Xin-chao-cac-ban-day-la-chuoi-co-dau", expected);
     }
 }
